@@ -1,0 +1,1013 @@
+
+/* =================================
+   1. DESIGN TOKENS
+================================= */
+
+:root {
+    --color-purple: #7047EB;
+    --color-orange: #FF7043;
+    --color-cream: #FFF8EC;
+    --color-ink: #191725;
+    --color-lime: #C8F169;
+    --color-white: #FFFFFF;
+
+    --font-main: Arial, Helvetica, sans-serif;
+
+    --radius-small: 12px;
+    --radius-large: 24px;
+    --radius-pill: 100px;
+
+    --container-width: 1200px;
+}
+
+
+/* =================================
+   2. GLOBAL RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--color-orange);
+    outline-offset: 4px;
+}
+
+
+/* =================================
+   3. NAVIGATION BAR
+================================= */
+
+.site-header {
+    padding: 20px 6%;
+    border-bottom: 1px solid rgba(25, 23, 37, 0.1);
+}
+
+.navbar {
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: var(--color-orange);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-purple);
+}
+
+.nav-cta {
+    background-color: var(--color-ink);
+    color: var(--color-white);
+
+    padding: 12px 22px;
+    border-radius: var(--radius-pill);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-cta:hover {
+    background-color: var(--color-purple);
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   4. BUTTONS
+================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 24px;
+    border-radius: var(--radius-pill);
+
+    font-weight: 700;
+    border: 2px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-primary {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+}
+
+.button-primary:hover {
+    background-color: var(--color-ink);
+}
+
+.button-secondary {
+    border-color: rgba(25, 23, 37, 0.2);
+    color: var(--color-ink);
+}
+
+.button-secondary:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+}
+
+
+/* =================================
+   5. HERO SECTION
+================================= */
+
+.hero {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 100px 6% 120px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.eyebrow {
+    color: var(--color-purple);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -3px;
+    font-weight: 900;
+
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    color: var(--color-orange);
+}
+
+.hero-description {
+    max-width: 480px;
+    font-size: 1.1rem;
+    color: #5F5B6D;
+
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-note {
+    margin-top: 22px;
+    font-size: 0.85rem;
+    color: #777282;
+}
+
+
+/* =================================
+   6. HERO PRODUCT PREVIEW
+================================= */
+
+.hero-visual {
+    min-height: 440px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 390px;
+
+    padding: 32px;
+    background-color: var(--color-white);
+    border: 1px solid rgba(25, 23, 37, 0.08);
+    border-radius: var(--radius-large);
+
+    box-shadow: 0 25px 70px rgba(50, 30, 100, 0.12);
+
+    transform: rotate(-2deg);
+}
+
+.card-label {
+    color: var(--color-purple);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 12px;
+}
+
+.project-card h2 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: #777282;
+
+    margin-bottom: 28px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.progress-track {
+    height: 9px;
+    overflow: hidden;
+
+    background-color: #EAE6F5;
+    border-radius: var(--radius-pill);
+
+    margin-bottom: 25px;
+}
+
+.progress-fill {
+    width: 60%;
+    height: 100%;
+
+    background-color: var(--color-purple);
+    border-radius: inherit;
+}
+
+.project-tasks {
+    list-style: none;
+
+    display: grid;
+    gap: 15px;
+}
+
+.project-tasks li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 0.9rem;
+}
+
+.task-complete span {
+    color: #498E30;
+    font-weight: 900;
+}
+
+
+/* Decorative shapes */
+
+.decorative-shape {
+    position: absolute;
+    border-radius: 35%;
+}
+
+.shape-orange {
+    width: 150px;
+    height: 150px;
+
+    background-color: var(--color-orange);
+
+    top: 10px;
+    right: 0;
+
+    transform: rotate(20deg);
+}
+
+.shape-purple {
+    width: 120px;
+    height: 120px;
+
+    background-color: var(--color-lime);
+
+    bottom: 5px;
+    left: 0;
+
+    transform: rotate(-15deg);
+}
+
+.floating-note {
+    position: absolute;
+    z-index: 3;
+
+    right: -5px;
+    bottom: 35px;
+
+    padding: 13px 18px;
+
+    background-color: var(--color-ink);
+    color: var(--color-white);
+
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    box-shadow: 0 10px 25px rgba(25, 23, 37, 0.15);
+}
+
+.floating-note span {
+    color: var(--color-lime);
+    margin-right: 6px;
+}
+
+
+/* =================================
+   7. MOBILE NAV BUTTON
+================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+
+    background-color: var(--color-ink);
+    border-radius: 5px;
+}
+
+
+/* Mobile navigation when opened */
+
+@media (max-width: 600px) {
+    .nav-links.nav-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+
+        order: 3;
+        width: 100%;
+        padding: 20px 0 10px;
+    }
+}
+
+/RESPONSIVE LAYOUT/
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding-top: 75px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 16px 5%;
+    }
+
+    .navbar {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-cta {
+        margin-left: auto;
+        padding: 10px 14px;
+        font-size: 0.78rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero {
+        padding: 65px 5% 75px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.6rem, 11vw, 3.8rem);
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 390px;
+    }
+
+    .project-card {
+        padding: 25px;
+    }
+
+    .floating-note {
+        right: 0;
+        bottom: 5px;
+    }
+
+    .shape-orange {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape-purple {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+
+/REDUCED MOTION/
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Waitlist form messages */
+
+.form-message {
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+.error-message {
+    color: #B42318;
+}
+
+.success-message {
+    color: #287A35;
+}
+
+
+/* =================================
+   10. SHARED SECTION STYLES
+================================= */
+
+.section {
+    padding: 100px 6%;
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-heading h2,
+.about h2,
+.waitlist h2 {
+    font-size: clamp(2.3rem, 4vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    font-weight: 900;
+}
+
+.section-heading h2 {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 span {
+    color: var(--color-purple);
+}
+
+.section-heading > p:last-child {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #5F5B6D;
+}
+
+
+/* =================================
+   11. FEATURES
+================================= */
+
+.features {
+    background-color: var(--color-white);
+}
+
+.feature-grid {
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 32px;
+    border-radius: var(--radius-large);
+    min-height: 270px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 35px rgba(25, 23, 37, 0.09);
+}
+
+.feature-orange {
+    background-color: #FFF0E8;
+}
+
+.feature-purple {
+    background-color: #EEE8FF;
+}
+
+.feature-lime {
+    background-color: #F0F8D9;
+}
+
+.feature-icon {
+    display: grid;
+    place-items: center;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 16px;
+    background-color: var(--color-white);
+
+    font-size: 1.8rem;
+    font-weight: 900;
+
+    margin-bottom: 35px;
+}
+
+.feature-orange .feature-icon {
+    color: var(--color-orange);
+}
+
+.feature-purple .feature-icon {
+    color: var(--color-purple);
+}
+
+.feature-lime .feature-icon {
+    color: #4D7620;
+}
+
+.feature-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.feature-card p {
+    color: #5F5B6D;
+    font-size: 0.95rem;
+}
+
+
+/* =================================
+   12. HOW IT WORKS
+================================= */
+
+.how-it-works {
+    background-color: var(--color-cream);
+}
+
+.steps-grid {
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+}
+
+.step-card {
+    padding: 28px 0;
+    border-top: 2px solid rgba(25, 23, 37, 0.15);
+}
+
+.step-number {
+    display: inline-block;
+
+    color: var(--color-orange);
+    font-size: 1rem;
+    font-weight: 900;
+
+    margin-bottom: 24px;
+}
+
+.step-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: #5F5B6D;
+    font-size: 0.95rem;
+}
+
+
+/* =================================
+   13. ABOUT SECTION
+================================= */
+
+.about {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+
+    text-align: center;
+}
+
+.about-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about .eyebrow {
+    color: var(--color-lime);
+}
+
+.about h2 {
+    margin-bottom: 24px;
+}
+
+.about-content > p:last-child {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+}
+
+
+/* =================================
+   14. WAITLIST SECTION
+================================= */
+
+.waitlist {
+    background-color: var(--color-orange);
+    text-align: center;
+}
+
+.waitlist-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.waitlist .eyebrow {
+    color: var(--color-ink);
+}
+
+.waitlist h2 {
+    margin-bottom: 20px;
+}
+
+.waitlist-content > p:not(.eyebrow) {
+    max-width: 530px;
+    margin: 0 auto 32px;
+
+    color: rgba(25, 23, 37, 0.8);
+}
+
+.waitlist-form {
+    max-width: 570px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.waitlist-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.form-controls input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 15px 18px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-pill);
+
+    background-color: var(--color-white);
+    color: var(--color-ink);
+}
+
+.form-controls input:focus {
+    border-color: var(--color-purple);
+    outline: none;
+}
+
+.form-controls .button {
+    flex-shrink: 0;
+    background-color: var(--color-ink);
+    color: var(--color-white);
+}
+
+.form-controls .button:hover {
+    background-color: var(--color-purple);
+}
+
+.waitlist .form-message {
+    color: var(--color-ink);
+    font-weight: 700;
+}
+
+
+/* =================================
+   15. FOOTER
+================================= */
+
+.site-footer {
+    padding: 35px 6%;
+    background-color: var(--color-ink);
+    color: var(--color-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.site-footer > p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer .logo span {
+    color: var(--color-orange);
+}
+
+.copyright {
+    width: 100%;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* =================================
+   16. RESPONSIVE SECTIONS
+================================= */
+
+@media (max-width: 900px) {
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .section {
+        padding: 80px 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 65px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .about h2,
+    .waitlist h2 {
+        letter-spacing: -1.2px;
+    }
+
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .feature-card:last-child {
+        grid-column: auto;
+    }
+
+    .feature-card {
+        min-height: auto;
+        padding: 26px;
+    }
+
+    .feature-icon {
+        margin-bottom: 24px;
+    }
+
+    .steps-grid {
+        gap: 12px;
+    }
+
+    .step-card {
+        padding: 22px 0;
+    }
+
+    .step-number {
+        margin-bottom: 12px;
+    }
+
+    .form-controls {
+        flex-direction: column;
+    }
+
+    .form-controls .button {
+        width: 100%;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 5%;
+    }
+}
+
+
+/* =================================
+   17. INTERACTION FEEDBACK
+================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+    .feature-card,
+    .button,
+    .nav-cta {
+        will-change: transform;
+    }
+}
+
+/* Waitlist form feedback */
+.waitlist .form-message.error-message {
+    color: #8B1E16;
+    font-weight: 700;
+}
+
+.waitlist .form-message.success-message {
+    color: #191725;
+    font-weight: 700;
+}
+
+
+/* Scroll reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
